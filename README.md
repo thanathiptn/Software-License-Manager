@@ -11,6 +11,16 @@ This app contains the following features:
 * View my assigned licences
 * Audit log
 
+## Prerequisites
+
+Please install the following software and create accounts with the following web tools:
+
+* Node.js — https://nodejs.org/en
+* Git — https://git-scm.com/
+* VS Code editor — https://code.visualstudio.com/
+* MongoDB Account — https://account.mongodb.com/account/login
+* GitHub Account — https://github.com/signup?source=login
+
 ## Running locally
 
 1. Clone the repository
@@ -21,16 +31,8 @@ This app contains the following features:
 
 ## Deployment
 
-Deployed on AWS EC2: [add URL after deployment]
+Deployed on AWS EC2: http://3.25.52.3:3000
 
----
-
-**Prerequisite:** Please install the following software and create account in following web tools** **
-
-* **Nodejs [**[https://nodejs.org/en](https://nodejs.org/en)]** **
-* **Git [**[https://git-scm.com/](https://git-scm.com/)]** **
-* **VS code editor** [[https://code.visualstudio.com/](https://code.visualstudio.com/)]** **
-* **MongoDB Account** [[https://account.mongodb.com/account/login](https://account.mongodb.com/account/login)]** - In tutorial, we have also showed how can you create account and database: follow step number 2.**
-* **GitHub Account** [[https://github.com/signup?source=login](https://github.com/signup?source=login)]** **
-
----
+Note: the EC2 instance's public IP can change if the instance is stopped and
+restarted. If the link above does not work, the current IP can be found by
+running `curl ifconfig.me` on the instance or checking the EC2 console.
