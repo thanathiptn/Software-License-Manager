@@ -1,10 +1,21 @@
 const Licence = require('../models/Licence');
+const Assignment = require('../models/Assignment');
 const { writeAuditLog } = require('../utils/auditLogger');
 
 const getLicences = async (req, res) => {
     try {
         const licences = await Licence.find().sort({ product: 1 });
-        res.json(licences);
+        const withAvailability = await Promise.all(
+            licences.map(async (licence) => {
+                const usedCount = await Assignment.countDocuments({ licence: licence._id, active: true });
+                return {
+                    ...licence.toObject(),
+                    usedCount,
+                    available: licence.purchasedQuantity - usedCount,
+                };
+            })
+        );
+        res.json(withAvailability);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
