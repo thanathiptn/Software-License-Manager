@@ -31,8 +31,11 @@ Please install the following software and create accounts with the following web
 
 ## Deployment
 
-Deployed on AWS EC2: http://3.25.52.3:3000
+Deployed on AWS EC2: http://3.27.248.38:3000
+
+The app is kept running with pm2, so it stays online even when the SSH
+session is closed, and restarts automatically if the instance reboots.
 
 Note: the EC2 instance's public IP can change if the instance is stopped and
-restarted. If the link above does not work, the current IP can be found by
-running `curl ifconfig.me` on the instance or checking the EC2 console.
+restarted. If the link above does not work, the current IP can be checked
+in the EC2 console under the instance's Public IPv4 address.
