@@ -16,12 +16,12 @@ const Licences = () => {
         });
         setLicences(response.data);
       } catch (err) {
-  if (err.response?.status === 403) {
-    setError('You do not have access to this page. Only a Licence Admin can open licence management.');
-  } else {
-    setError('Could not load licences.');
-  }
-} finally {
+        if (err.response?.status === 403) {
+          setError('You do not have access to this page. Only a Licence Admin can open licence management.');
+        } else {
+          setError('Could not load licences.');
+        }
+      } finally {
         setLoading(false);
       }
     };
@@ -41,7 +41,7 @@ const Licences = () => {
           <div key={licence._id} className="border rounded-xl p-4 mb-3">
             <p className="font-semibold">{licence.product}</p>
             <p className="text-sm text-gray-600">
-              {licence.purchasedQuantity} licences
+              {licence.usedCount} of {licence.purchasedQuantity} Used
             </p>
           </div>
         ))
