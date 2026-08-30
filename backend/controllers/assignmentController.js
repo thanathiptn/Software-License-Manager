@@ -37,4 +37,14 @@ const assignLicence = async (req, res) => {
     }
 };
 
-module.exports = { assignLicence };
+const getMyLicences = async (req, res) => {
+    try {
+        const assignments = await Assignment.find({ user: req.user.id, active: true })
+            .populate('licence', 'product licenceType expiryDate');
+        res.json(assignments);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+module.exports = { assignLicence, getMyLicences };
