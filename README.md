@@ -31,7 +31,7 @@ Please install the following software and create accounts with the following web
 
 ## Deployment
 
-Deployed on AWS EC2: http://3.27.248.38:3000
+Deployed on AWS EC2: http://3.106.124.197:3000
 
 The app is kept running with pm2, so it stays online even when the SSH
 session is closed, and restarts automatically if the instance reboots.
