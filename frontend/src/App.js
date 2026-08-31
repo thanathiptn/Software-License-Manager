@@ -7,6 +7,7 @@ import Tasks from './pages/Tasks';
 import Licences from './pages/Licences';
 import AssignLicence from './pages/AssignLicence';
 import MyLicences from './pages/MyLicences';
+import AuditLogs from './pages/AuditLogs';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/licences" element={<Licences />} />
         <Route path="/assign" element={<AssignLicence />} />
         <Route path="/my-licences" element={<MyLicences />} />
+        <Route path="/audit-logs" element={<AuditLogs />} />
       </Routes>
     </Router>
   );
