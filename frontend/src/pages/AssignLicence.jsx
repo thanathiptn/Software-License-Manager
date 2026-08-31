@@ -11,14 +11,26 @@ const AssignLicence = () => {
   const [available, setAvailable] = useState(null);
   const [message, setMessage] = useState('');
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [pageError, setPageError] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
-      const headers = { Authorization: `Bearer ${user.token}` };
-      const licRes = await axiosInstance.get('/api/licences', { headers });
-      const usrRes = await axiosInstance.get('/api/auth/users', { headers });
-      setLicences(licRes.data);
-      setUsers(usrRes.data.filter((u) => u.role === 'user'));
+      try {
+        const headers = { Authorization: `Bearer ${user.token}` };
+        const licRes = await axiosInstance.get('/api/licences', { headers });
+        const usrRes = await axiosInstance.get('/api/auth/users', { headers });
+        setLicences(licRes.data);
+        setUsers(usrRes.data.filter((u) => u.role === 'user'));
+      } catch (err) {
+        if (err.response?.status === 403) {
+          setPageError('You do not have access to this page. Only a Licence Admin can assign licences.');
+        } else {
+          setPageError('Could not load assign licence data.');
+        }
+      } finally {
+        setLoading(false);
+      }
     };
     fetchData();
   }, [user]);
@@ -47,6 +59,9 @@ const AssignLicence = () => {
       }
     }
   };
+
+  if (loading) return <p className="p-8">Loading...</p>;
+  if (pageError) return <p className="p-8 text-red-600">{pageError}</p>;
 
   return (
     <div className="max-w-md mx-auto p-4">

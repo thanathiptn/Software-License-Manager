@@ -2,8 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Profile from './pages/Profile';
-import Tasks from './pages/Tasks';
 import Licences from './pages/Licences';
 import AssignLicence from './pages/AssignLicence';
 import MyLicences from './pages/MyLicences';
@@ -16,8 +14,6 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/tasks" element={<Tasks />} />
         <Route path="/licences" element={<Licences />} />
         <Route path="/assign" element={<AssignLicence />} />
         <Route path="/my-licences" element={<MyLicences />} />
