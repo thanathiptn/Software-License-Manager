@@ -11,20 +11,20 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-blue-600 text-white p-4 flex justify-between items-center">
-      <Link to="/" className="text-2xl font-bold">Software Licence Manager</Link>
-      <div>
+    <nav className="bg-blue-600 text-white p-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+      <Link to="/" className="text-xl sm:text-2xl font-bold">Software Licence Manager</Link>
+      <div className="flex flex-wrap items-center gap-3">
         {user ? (
           <>
             {user.role === 'admin' && (
               <>
-                <Link to="/licences" className="mr-4">Licences</Link>
-                <Link to="/assign" className="mr-4">Assign</Link>
-                <Link to="/audit-logs" className="mr-4">Audit Log</Link>
+                <Link to="/licences">Licences</Link>
+                <Link to="/assign">Assign</Link>
+                <Link to="/audit-logs">Audit Log</Link>
               </>
             )}
             {user.role === 'user' && (
-              <Link to="/my-licences" className="mr-4">My Licences</Link>
+              <Link to="/my-licences">My Licences</Link>
             )}
             <button
               onClick={handleLogout}
@@ -35,7 +35,7 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            <Link to="/login" className="mr-4">Login</Link>
+            <Link to="/login">Login</Link>
             <Link
               to="/register"
               className="bg-green-500 px-4 py-2 rounded hover:bg-green-700"
