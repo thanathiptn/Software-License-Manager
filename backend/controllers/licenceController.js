@@ -23,6 +23,11 @@ const getLicences = async (req, res) => {
 
 const createLicence = async (req, res) => {
     const { product, licenceType, purchasedQuantity, purchaseDate, expiryDate } = req.body;
+
+    if (!purchasedQuantity || purchasedQuantity <= 0) {
+        return res.status(400).json({ message: 'purchasedQuantity must be a positive number' });
+    }
+
     try {
         const licence = await Licence.create({
             product, licenceType, purchasedQuantity, purchaseDate, expiryDate,
