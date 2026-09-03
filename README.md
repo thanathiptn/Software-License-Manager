@@ -47,7 +47,7 @@ The application is a MERN-stack web app:
 
 ## Deployment
 
-Deployed on AWS EC2: http://15.134.137.76:3000
+Deployed on AWS EC2: http://13.239.56.6:3000
 
 The app is kept running with pm2, so it stays online even when the SSH
 session is closed, and restarts automatically if the instance reboots.
